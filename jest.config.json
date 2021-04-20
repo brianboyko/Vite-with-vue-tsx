@@ -1,0 +1,15 @@
+{
+  "moduleFileExtensions": ["js", "ts", "jsx", "tsx", "json", "vue", "scss"],
+  "transform": {
+    "^.+\\.vue$": "vue-jest",
+    "^.+\\.[t|j]sx?$": "babel-jest"
+  },
+  "globals": {
+    "vue-jest": {
+      "babelConfig": true
+    },
+    "ts-jest": {
+      "babelConfig": true
+    }
+  }
+}
