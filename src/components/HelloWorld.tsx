@@ -1,27 +1,16 @@
 import { reactive, defineComponent, computed } from "vue";
+import useCounter, { CounterState } from "./hooks/useCounter";
 import "./styletest.scss";
 
 interface HelloWorldProps {
   msg: string;
 }
 
-interface HelloWorldState {
-  count: number;
-  double: number;
-}
-
 const HelloWorld = defineComponent({
   name: "HelloWorld",
   props: ["msg"], // quirk of vue - must be defined.
   setup: () => {
-    const state: HelloWorldState = reactive({
-      count: 0,
-      double: computed(() => state.count * 2),
-    });
-
-    const increment = (): void => {
-      state.count += 1;
-    };
+    const { state, increment } = useCounter();
     return ({ msg }: HelloWorldProps) => (
       <>
         <div class="outside-hello-world">
